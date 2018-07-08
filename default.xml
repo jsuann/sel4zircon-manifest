@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<manifest>
+
+<remote name="seL4"
+    fetch="https://github.com/seL4"
+/>
+
+<remote name="jsuann"
+    fetch="https://github.com/jsuann"
+/>
+
+<remote name="fuchsia"
+    fetch="https://fuchsia.googlesource.com"
+/>
+
+<default revision="master"
+remote="seL4"
+/>
+
+<project name="seL4.git" path="kernel" revision="refs/tags/7.0.0">
+    <linkfile src="libsel4" dest="libs/libsel4"/>
+</project>
+
+<project name="seL4_tools.git" path="projects/tools" revision="7.0.x-compatible">
+    <linkfile src="common-tool" dest="tools/common"/>
+    <linkfile src="kbuild-tool" dest="tools/kbuild"/>
+    <linkfile src="elfloader-tool" dest="tools/elfloader" />
+    <linkfile src="cmake-tool" dest="tools/cmake-tool" />
+    <linkfile src="cmake-tool/default-CMakeLists.txt" dest="CMakeLists.txt"/>
+</project>
+
+<project name="musllibc.git" path="projects/musllibc" revision="7.0.x-compatible">
+    <linkfile src="." dest="libs/libmuslc"/>
+</project>
+
+<project name="seL4_libs.git" path="projects/seL4_libs" revision="7.0.x-compatible">
+    <linkfile src="libsel4allocman" dest="libs/libsel4allocman" />
+    <linkfile src="libsel4debug" dest="libs/libsel4debug" />
+    <linkfile src="libsel4muslcsys" dest="libs/libsel4muslcsys" />
+    <linkfile src="libsel4platsupport" dest="libs/libsel4platsupport" />
+    <linkfile src="libsel4serialserver" dest="libs/libsel4serialserver" />
+    <linkfile src="libsel4simple" dest="libs/libsel4simple" />
+    <linkfile src="libsel4simple-default" dest="libs/libsel4simple-default" />
+    <linkfile src="libsel4simple-stable" dest="libs/libsel4simple-stable" />
+    <linkfile src="libsel4test" dest="libs/libsel4test" />
+    <linkfile src="libsel4utils" dest="libs/libsel4utils" />
+    <linkfile src="libsel4vka" dest="libs/libsel4vka" />
+    <linkfile src="libsel4vspace" dest="libs/libsel4vspace" />
+    <linkfile src="libsel4sync" dest="libs/libsel4sync" />
+</project>
+
+<project name="util_libs.git" path="projects/util_libs" revision="7.0.x-compatible">
+    <linkfile src="libcpio" dest="libs/libcpio" />
+    <linkfile src="libelf"  dest="libs/libelf" />
+    <linkfile src="libplatsupport" dest="libs/libplatsupport" />
+    <linkfile src="libutils" dest="libs/libutils" />
+</project>
+
+<project name="sel4zircon.git" remote="jsuann" path="projects/sel4zircon" revision="master">
+    <linkfile src="Makefile" dest="Makefile"/>
+    <linkfile src="Kbuild" dest="Kbuild"/>
+    <linkfile src="Kconfig" dest="Kconfig"/>
+    <linkfile src="master-configs" dest="configs"/>
+    <linkfile src="apps" dest="apps"/>
+    <linkfile src="libzircon" dest="libs/libzircon"/>
+    <linkfile src="libzxutils" dest="libs/libzxutils"/>
+</project>
+
+<project name="zircon" remote="fuchsia" path="projects/zircon-src" revision="7d5d9921ea8e82e72b92836652ac6e5c92baf3af">
+    <linkfile src="." dest="zircon"/>
+</project>
+
+</manifest>
